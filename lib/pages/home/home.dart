@@ -38,6 +38,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.calendar),
+            label: "Calendar",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.chat_bubble_2),
+            label: "Chat",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person),
+            label: "Account",
+          ),
+        ],
+      ),
       appBar: AppBar(
         centerTitle: false,
         actions: [
@@ -102,7 +125,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: const EdgeInsets.only(top: 20),
               width: MediaQuery.sizeOf(context).width,
-              height: 170,
+              height: 180,
               child: ListView.builder(
                   padding: const EdgeInsets.only(left: 8),
                   scrollDirection: Axis.horizontal,
@@ -162,6 +185,15 @@ class _HomePageState extends State<HomePage> {
                                   style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500),
+                                )),
+                            Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Text(
+                                  index == 0 ? "30 days * daily" : "New words",
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400),
                                 )),
                           ]),
                     );

@@ -20,10 +20,8 @@ class _WordOfTheDayState extends State<WordOfTheDay> {
 
   Future<String> generateRandomWord() async {
     try {
-      final response = await Dio().get(randomWordUrl,
-          options: Options(headers: {
-            "X-Api-Key": "s2fEd98mfx6coxYzJ28iVA==2hA1O1bK24lpNP5n"
-          }));
+      final response =
+          await Dio().get(randomWordUrl, options: Options(headers: {}));
       if (response.statusCode == 200) {
         return response.data['word'];
       }
