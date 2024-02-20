@@ -232,7 +232,11 @@ class _WordOfTheDayState extends State<WordOfTheDay> {
                   child: SizedBox(
                     width: double.infinity,
                     child: OutlinedButton.icon(
-                      icon: const Icon(CupertinoIcons.book, size: 16),
+                      icon: const Icon(
+                        CupertinoIcons.book,
+                        size: 16,
+                        color: Colors.black,
+                      ),
                       onPressed: () {
                         showModalBottomSheet(
                           showDragHandle: true,
@@ -369,7 +373,10 @@ class _WordOfTheDayState extends State<WordOfTheDay> {
                           },
                         );
                       },
-                      label: const Text("Learn more"),
+                      label: const Text(
+                        "Learn more",
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
                 )

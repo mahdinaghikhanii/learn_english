@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_english/pages/home/home.dart';
 import 'package:learn_english/pages/onboard/onboard.dart';
 
 void main() {
@@ -12,7 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        debugShowMaterialGrid: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,

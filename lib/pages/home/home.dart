@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 12.0),
             child: CircleAvatar(
               backgroundColor: Colors.orange.shade200,
-              child: Icon(CupertinoIcons.person),
+              child: const Icon(CupertinoIcons.person),
             ),
           ),
         ],
@@ -86,6 +86,87 @@ class _HomePageState extends State<HomePage> {
               child: Text("You have new words!"),
             ),
             const WordOfTheDay(),
+            const SizedBox(height: 25),
+            Row(children: [
+              const Text(
+                "Your lesson",
+                style: TextStyle(fontWeight: FontWeight.w700),
+              ),
+              const Spacer(),
+              Container(
+                decoration: BoxDecoration(
+                    border:
+                        Border.all(width: 1, color: Colors.orange.shade200)),
+              )
+            ]),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              width: MediaQuery.sizeOf(context).width,
+              height: 170,
+              child: ListView.builder(
+                  padding: const EdgeInsets.only(left: 8),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 150,
+                      margin: const EdgeInsets.only(right: 25),
+                      height: 150,
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.shade100,
+                                  borderRadius: BorderRadius.circular(20)),
+                              width: 150,
+                              height: 100,
+                              child: Center(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset(
+                                    index == 0
+                                        ? "assets/flag.png"
+                                        : "assets/british_flag.png",
+                                    width: 90,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 105,
+                                  child: LinearProgressIndicator(
+                                    value: 0.48,
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Colors.orange.shade200,
+                                    minHeight: 8,
+                                    backgroundColor: Colors.grey.shade200,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                const Text(
+                                  "50%",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500),
+                                )
+                              ],
+                            ),
+                            Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Text(
+                                  index == 0 ? "Speaking 101" : "New words",
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500),
+                                )),
+                          ]),
+                    );
+                  }),
+            )
           ],
         ),
       ),
